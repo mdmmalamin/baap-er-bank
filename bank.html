@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baap Er Bank - Deshboard</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body{
+        background-color: #21201f;
+        color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="text-5xl text-center mt-6">Let's get some <span class="font-semibold text-orange-600">Money!!!</span></h1>
+    </header>
+    <main>
+        <!-- Total Balance -->
+        <section class="mt-12">
+            <div class="grid grid-cols-3 gap-8 w-9/12 mx-auto">
+                <div class="bg-green-400 p-8 rounded-xl">
+                    <h4 class="text-2xl font-semibold text-green-100">Deposit</h4>
+                    <h2 class="text-5xl font-semibold">$<span id="today-deposit">00</span></h2>
+                </div>
+                <div class="bg-red-400 p-8 rounded-xl">
+                    <h4 class="text-2xl font-semibold text-red-100">Withdraw</h4>
+                    <h2 class="text-5xl font-semibold">$<span id="today-withdraw">00</span></h2>
+                </div>
+                <div class="bg-orange-400 p-8 rounded-xl">
+                    <h4 class="text-2xl font-semibold text-orange-100">Balance</h4>
+                    <h2 class="text-5xl font-semibold">$<span id="balance">1250</span></h2>
+                </div>
+            </div>
+        </section>
+        <!-- Deposit and Withdraw -->
+        <section class="mt-12">
+            <div class="grid grid-cols-2 gap-8 w-9/12 mx-auto">
+                <div class="bg-orange-300 p-8 rounded-xl">
+                    <h4 class="text-3xl font-semibold">Please Deposit</h4>
+                    <input class="my-4 w-9/12 px-4 py-2 border rounded-full text-black" type="number" min="5" step="5" name="" placeholder="Minimun $5" id="input-deposit">
+                    <br>
+                    <button class="px-4 py-2 rounded-full font-semibold bg-orange-500 hover:bg-orange-700" type="submit" id="btn-deposit">Deposit</button>
+                </div>
+                <div class="bg-orange-300 p-8 rounded-xl">
+                    <h4 class="text-3xl font-semibold">Please Withdraw</h4>
+                    <input class="my-4 w-9/12 px-4 py-2 border rounded-full text-black" type="number" min="5" step="5" name="" placeholder="Minimum $5" id="input-withdraw">
+                    <br>
+                    <button class="px-4 py-2 rounded-full font-semibold bg-orange-500 hover:bg-orange-700" type="submit" id="btn-withdraw">Withdraw</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app/deposit.js"></script>
+    <script src="app/withdraw.js"></script>
+</body>
+</html>
