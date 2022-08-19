@@ -1,37 +1,20 @@
-// step-1: add event listener to the deposit button 
-document.getElementById('btn-deposit').addEventListener('click', function(){
-    // step-2: get the deposit amount from the deposit input field
-    // For input field use .value to the value inside the input field
-    const userDeposit = document.getElementById('input-deposit');
-    const newDepositAmountString = userDeposit.value;
-    const newDepositAmount = parseFloat(newDepositAmountString);
+// add deposit button event handler
+document.getElementById('btn-deposit').addEventListener('click', function () {
+    // get new deposit by using input field function
+    const newDepositAmount = getInputFieldValueById('deposit-field');
 
-    // step-7: clear the current deposit field
-    userDeposit.value = '';
-
-    // if NaN
-    if(isNaN(newDepositAmount)){
+    if (isNaN(newDepositAmount)){
+        alert('Enter a valid Amount!');
         return;
     }
 
-    // step-3: get the current deposit total
-    // for non-input(element other than input, textarea) use innerText to get the text
-    const currentDeposit = document.getElementById('today-deposit');
-    const currentDepositAmountString = currentDeposit.innerText;
-    const currentDepositAmount = parseFloat(currentDepositAmountString);
+    // get previous deposit by using previous amount function
+    const previousDepositAmount = getPreviousValueById('deposit-total');
+    const totalDepositAmount = previousDepositAmount + newDepositAmount;
+    setCurrentValueById('deposit-total', totalDepositAmount);
 
-    // step-4: add numbers to set the total deposit
-    const todayTotalDeposit = currentDepositAmount + newDepositAmount;
-    // set the deposit total
-    currentDeposit.innerText = todayTotalDeposit;
-
-    // step-5: get balance current total
-    const currentBalance = document.getElementById('balance');
-    const totalCurrentBalanceString = currentBalance.innerText;
-    const totalCurrentBalance = parseFloat(totalCurrentBalanceString);
-
-    // step-6: calculate current total balance
-    const totalBalance = totalCurrentBalance + newDepositAmount;
-    // set the balance total
-    currentBalance.innerText = totalBalance;
+    // get previous balance by using previous amount function
+    const previousBalanceAmount = getPreviousValueById('balance-total');
+    const totalBalanceAmount = previousBalanceAmount + newDepositAmount;
+    setCurrentValueById('balance-total', totalBalanceAmount);
 });
